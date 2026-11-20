@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Bay Cover Studio — GTA-style cover maker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <h1>Neon Bay Cover Studio</h1>
+    <p class="tagline">Turn your photos into Vice City cover art — no uploads, no waiting.</p>
+  </div>
+  <p class="badge">GTA-style &middot; 100% offline</p>
+</header>
+
+<main class="layout">
+  <section class="preview" aria-label="Cover preview">
+    <canvas id="cover" width="960" height="540"></canvas>
+    <p class="preview-note" id="previewNote">Hero &middot; Vice Sunset &middot; 1920 &times; 1080 preview</p>
+  </section>
+
+  <aside class="editor" aria-label="Cover editor">
+    <section class="step">
+      <h2><span class="num">1</span> Photos</h2>
+      <label class="field">Add your photos
+        <input type="file" id="upload" accept="image/*" multiple>
+      </label>
+      <p class="hint">Sample photos load by themselves. Add your own to use them instead.</p>
+      <div id="panelCards"></div>
+    </section>
+
+    <section class="step">
+      <h2><span class="num">2</span> Look</h2>
+      <p class="label">One-tap Looks</p>
+      <div class="looks">
+        <button type="button" data-look="sunset-heist">Sunset Heist</button>
+        <button type="button" data-look="boulevard-queen">Boulevard Queen</button>
+        <button type="button" data-look="neon-nights">Neon Nights</button>
+        <button type="button" data-look="vice-noir">Vice Noir</button>
+      </div>
+      <label class="field">Layout
+        <select id="layout">
+          <option value="hero">Hero — 1 big + 2 small</option>
+          <option value="duo">Duo — split screen</option>
+          <option value="poster">Poster — full-bleed</option>
+        </select>
+      </label>
+      <label class="field">Grade
+        <select id="grade">
+          <option value="sunset">Vice Sunset</option>
+          <option value="neon">Neon Night</option>
+          <option value="gold">Palm Gold</option>
+          <option value="noir">Vice Noir</option>
+        </select>
+      </label>
+      <label class="field">Lettering
+        <select id="lettering">
+          <option value="solid">Solid glow</option>
+          <option value="outline">Outlined neon</option>
+        </select>
+      </label>
+      <label class="field">Title
+        <input type="text" id="title" value="VICE CITY" maxlength="24">
+      </label>
+      <label class="field">Subtitle
+        <input type="text" id="subtitle" value="Neon Nights &middot; Est. 2026" maxlength="48">
+      </label>
+      <label class="field">Title size
+        <select id="titleSize">
+          <option value="huge">Huge</option>
+          <option value="large" selected>Large</option>
+          <option value="medium">Medium</option>
+        </select>
+      </label>
+      <label class="field">Title colour
+        <select id="titleColor">
+          <option value="white" selected>White</option>
+          <option value="pink">Hot pink</option>
+          <option value="gold">Gold</option>
+          <option value="cyan">Neon cyan</option>
+        </select>
+      </label>
+      <label class="check"><input type="checkbox" id="skyline" checked> Skyline + palms behind panels</label>
+      <label class="check"><input type="checkbox" id="grain" checked> Grain + vignette</label>
+    </section>
+
+    <section class="step">
+      <h2><span class="num">3</span> Export</h2>
+      <label class="field">Preview size
+        <select id="previewSize">
+          <option value="1920x1080" selected>1920 &times; 1080 — landscape</option>
+          <option value="1080x1080">1080 &times; 1080 — square</option>
+          <option value="1080x1350">1080 &times; 1350 — portrait</option>
+        </select>
+      </label>
+      <button type="button" id="exportBtn" class="export">Export PNG</button>
+      <p class="hint">Exports at the exact size above. Your photos never leave this browser.</p>
+    </section>
+  </aside>
+</main>
+
+<footer class="foot">
+  <p>Neon Bay Cover Studio — original art, system fonts only. Not affiliated with Rockstar Games.</p>
+</footer>
+
+<script src="src/cover.js"></script>
+<script src="src/main.js"></script>
+</body>
+</html>
